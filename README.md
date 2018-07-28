@@ -59,7 +59,7 @@ The project is _super_ helpful to kick-start your next project, as it provides a
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started Install
 
 #### 1. Clone and Install
 
