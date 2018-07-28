@@ -106,7 +106,8 @@ This repo is a great place to start, but if you'd prefer to sit back and have yo
 
 ---
 
-## 💡 Inspiration
+
+## 💡 Inspiration 
 
 - [This blog post](http://jkaufman.io/react-web-native-codesharing/) helped put the ideas into action
 
