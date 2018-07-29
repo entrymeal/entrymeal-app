@@ -5,9 +5,13 @@ import { Icon } from 'native-base';
 import DefaultProps from '../constants/navigation';
 import AppConfig from '../../constants/config';
 
-import RecipesContainer from '../../containers/Recipes';
-import RecipesComponent from '../components/Recipes';
-import RecipeViewComponent from '../components/Recipe';
+// import RecipesContainer from '../../containers/Recipes';
+// import RecipesComponent from '../components/Recipes';
+// import RecipeViewComponent from '../components/Recipe';
+
+import RestrntContainer from '../../containers/RestaurantListing';
+import RestrntComponent from '../components/Restaurants';
+import RestrntViewComponent from '../components/Restaurant';
 
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/SignUp';
@@ -50,11 +54,11 @@ const Index = (
 
         <Stack
           key="recipes"
-          title="RECIPES"
+          title="Restaurants"
           icon={() => <Icon name="book" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="recipes" component={RecipesContainer} Layout={RecipesComponent} />
+          <Scene key="recipes" component={RestrntContainer} Layout={RestrntComponent} />
         </Stack>
 
         <Stack
@@ -114,8 +118,8 @@ const Index = (
       key="recipe"
       title="RECIPE"
       {...DefaultProps.navbarProps}
-      component={RecipesContainer}
-      Layout={RecipeViewComponent}
+      component={RestrntContainer}
+      Layout={RestrntViewComponent}
     />
   </Stack>
 );
