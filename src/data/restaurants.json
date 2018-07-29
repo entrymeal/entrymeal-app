@@ -1,0 +1,24 @@
+{
+    "restaurants": [
+      {
+        "name": "Mino Sushi Place",
+        "bannerImg": "https://www.tropical-islands.de/fileadmin/_processed_/csm_TI_RESTAURANT_TROPICAL-GARDEN1_RGB_2000x860_c3a4238088.jpg",
+        "availableTime": "11AM - 6PM"
+      },
+      {
+        "name": "Manam Indian Cuisine",
+        "bannerImg": "https://www.thonhotels.com/siteassets/hoteller/belgia/brussel/thon-hotel-bristol-stephanie/mat-og-drikke/thon-hotel-bristol-stephanie-91-restaurant-2.jpg",
+        "availableTime": "11AM - 6PM"
+      },
+      {
+        "name": "Cedars Cafe",
+        "bannerImg": "https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg",
+        "availableTime": "11AM - 6PM"
+      },
+      {
+        "name": "Smash Burger",
+        "bannerImg": "http://seoulspace.com/wp-content/uploads/2016/08/rest.png",
+        "availableTime": "11AM - 6PM"
+      }
+    ]
+  }
