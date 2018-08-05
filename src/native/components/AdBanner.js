@@ -17,10 +17,15 @@ import Offers from './Offers';
 const { width } = Dimensions.get('window');
 
 const planets = [
-  { title: 'Chicken Roast', value: 'https://realfood.tesco.com/media/images/TescoWinter40-18GreekChicken-1400x919-f075adee-5ae5-4347-a14a-9ea69a482ce1-0-1400x919.jpg', abbr: 'SUN' },
-  { title: 'Grilled', value: 'https://realfood.tesco.com/media/images/TescoWinter40-18GreekChicken-1400x919-f075adee-5ae5-4347-a14a-9ea69a482ce1-0-1400x919.jpg', abbr: 'SUN' },
-  { title: 'Masala', value: 'https://realfood.tesco.com/media/images/TescoWinter40-18GreekChicken-1400x919-f075adee-5ae5-4347-a14a-9ea69a482ce1-0-1400x919.jpg', abbr: 'SUN' },
-  { title: 'Tandoori', value: 'https://realfood.tesco.com/media/images/TescoWinter40-18GreekChicken-1400x919-f075adee-5ae5-4347-a14a-9ea69a482ce1-0-1400x919.jpg', abbr: 'SUN' }
+  { title: 'Pizza', value: 'https://possector.com/wordpress/wp-content/uploads/2013/09/restaurant-menu-special0.jpg', abbr: 'SUN' },
+  { title: 'Grilled', value: 'https://i.pinimg.com/originals/c0/a5/3d/c0a53da27ca851c1b639931e9e4dd9fa.jpg', abbr: 'SUN' },
+  { title: 'Fries', value: 'https://cdn.winsightmedia.com/platform/files/public/2018-04/background/800x420/Australian-Loaded-Fries_1524594883.jpg', abbr: 'SUN' },
+  { title: 'Food', value: 'https://communityimpact.com/wp-content/uploads/2017/12/CTA-2017-12-17-05.jpg', abbr: 'SUN' },
+  { title: 'Tandoori', value: 'https://pbs.twimg.com/media/C8wRTaOV0AAOudl.jpg', abbr: 'SUN' },
+  { title: 'Tandoori1', value: 'https://cdn20.patchcdn.com/users/22844250/20180430/034323/styles/T800x600/public/processed_images/facebookpost-1525117369-1363.jpg', abbr: 'SUN' },
+  { title: 'Tandoori2', value: 'https://hhzone-9xus1dmbj2c6vgkwmqf.netdna-ssl.com/wp-content/uploads/2011/03/Anna-Maria-Photos-42-of-48-436x298.jpg', abbr: 'SUN' },
+  { title: 'Tandoori3', value: 'https://blog.opentable.com/wp-content/uploads/2018/04/blog-OceanaShellfishPlateau39649-copy.jpeg', abbr: 'SUN' },
+  { title: 'Tandoori4', value: 'https://kristyowen1.files.wordpress.com/2010/02/frank-austin1.jpg', abbr: 'SUN' }
  ];
 
 export default class AdBanner extends Component {
@@ -38,17 +43,12 @@ export default class AdBanner extends Component {
     return (
       <View
         style={styles.container}>
-        <StatusBar barStyle="light-content" />
-        <Image
-          resizeMode="contain"
-          style={styles.fill}
-          source={{uri:'https://image.freepik.com/free-vector/abstract-white-background-vector-illustration_1407-419.jpg'}}
-      />
+
             <SideSwipe
               data={planets}
               shouldCapture={() => true}
               style={[styles.fill, { width }]}
-              contentContainerStyle={{  paddingTop: 100 }}
+              contentContainerStyle={{  paddingTop: 10 }}
               itemWidth={Offers.WIDTH}
               threshold={Offers.WIDTH / 4}
               extractKey={item => item.title}
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     justifyContent: 'flex-start',
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: 'black',
+    backgroundColor: 'white',
   },
   fill: {
     position: 'absolute',

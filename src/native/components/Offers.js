@@ -44,27 +44,6 @@ export default class Offers extends Component {
           ]}
           source={{uri :planet.value} }
         />
-        <Animated.Text
-          style={[
-            styles.title,
-            {
-              opacity: animatedValue.interpolate({
-                inputRange: [index - 1, index, index + 1],
-                outputRange: [0, 1, 0],
-              }),
-              transform: [
-                {
-                  translateY: animatedValue.interpolate({
-                    inputRange: [index - 1, index, index + 1],
-                    outputRange: [-30, 0, -30],
-                    extrapolate: 'clamp',
-                  }),
-                },
-              ],
-            },
-          ]}>
-          {planet.title.toUpperCase()}
-        </Animated.Text>
       </Animated.View>
     );
   };
