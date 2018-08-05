@@ -1,42 +1,90 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { View, Image } from 'react-native';
+import React, { Component } from 'react';
 import {
-  Text, H1, Container, Content, Card, CardItem, Icon, Button,
-} from 'native-base';
-import Spacer from './Spacer';
+  ActivityIndicator,
+  Image,
+  Text,
+  View,
+  StyleSheet,
+  Dimensions,
+  StatusBar,
+  Platform,
+} from 'react-native';
+import { Constants, Font } from 'expo';
+import SideSwipe from 'react-native-sideswipe'; // Version can be specified in package.json
 
+import Offers from './Offers';
 
-const AdBanner = ({ title }) => (
+const { width } = Dimensions.get('window');
 
-  <Card transparent style={{ paddingHorizontal: 0 }}>
-    <CardItem cardBody>
+const planets = [
+  { title: 'Chicken Roast', value: 'https://realfood.tesco.com/media/images/TescoWinter40-18GreekChicken-1400x919-f075adee-5ae5-4347-a14a-9ea69a482ce1-0-1400x919.jpg', abbr: 'SUN' },
+  { title: 'Grilled', value: 'https://realfood.tesco.com/media/images/TescoWinter40-18GreekChicken-1400x919-f075adee-5ae5-4347-a14a-9ea69a482ce1-0-1400x919.jpg', abbr: 'SUN' },
+  { title: 'Masala', value: 'https://realfood.tesco.com/media/images/TescoWinter40-18GreekChicken-1400x919-f075adee-5ae5-4347-a14a-9ea69a482ce1-0-1400x919.jpg', abbr: 'SUN' },
+  { title: 'Tandoori', value: 'https://realfood.tesco.com/media/images/TescoWinter40-18GreekChicken-1400x919-f075adee-5ae5-4347-a14a-9ea69a482ce1-0-1400x919.jpg', abbr: 'SUN' }
+ ];
+
+export default class AdBanner extends Component {
+  state = {
+    currentIndex: 0,   
+  };
+
+ 
+
     
-        <Image 
-        style={{
-          height: 200,
-          width: 200,
-          flex: 1,
-          resizeMode: 'cover',
-         
-        }}
-        source={{ uri: 'http://discount-coupon-codes.upto75.com/uploadimages/coupons/7768-UtsavRestaurant_640x320_Banner.jpg' }}
+
+  render = () => {
+    const offset = (width - Offers.WIDTH) / 2;
+
+    return (
+      <View
+        style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <Image
+          resizeMode="contain"
+          style={styles.fill}
+          source={{uri:'https://image.freepik.com/free-vector/abstract-white-background-vector-illustration_1407-419.jpg'}}
       />
-    </CardItem>
-  </Card>
-   
+            <SideSwipe
+              data={planets}
+              shouldCapture={() => true}
+              style={[styles.fill, { width }]}
+              contentContainerStyle={{  paddingTop: 100 }}
+              itemWidth={Offers.WIDTH}
+              threshold={Offers.WIDTH / 4}
+              extractKey={item => item.title}
+              contentOffset={offset}
+              onIndexChange={index =>
+                this.setState(() => ({ currentIndex: index }))}
+              renderItem={({ itemIndex, currentIndex, item, animatedValue }) => (
+                <Offers
+                  planet={item}
+                  index={itemIndex}
+                  currentIndex={currentIndex}
+                  animatedValue={animatedValue}
+                />
+            )}
+          />
 
-  
-
-
+          
+        </View>
 );
+  };
+}
 
-AdBanner.propTypes = {
-  title: PropTypes.string,
-};
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'stretch',
+    justifyContent: 'flex-start',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: 'black',
+  },
+  fill: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
 
-AdBanner.defaultProps = {
-  title: 'Missing title',
-};
-
-export default AdBanner;
+});

@@ -42,11 +42,11 @@ const RestaurantListing = ({
           style={{
             flex: 1,
             backgroundColor: '#eee',
+            width: 400,
+            height: 400,
           }}
         >
-          <AdBanner
-            title="Hello There"
-          />
+          <AdBanner />
         </View>
         <FlatList
           flex={1}

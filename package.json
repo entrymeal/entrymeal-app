@@ -30,7 +30,8 @@
     "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
-    "webpack-hot-middleware": "^2.22.3"
+    "webpack-hot-middleware": "^2.22.3",
+    "react-native-sideswipe": "^1.4.2"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -78,6 +79,7 @@
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",
     "sugarss": "^1.0.1",
-    "superagent": "^3.8.2"
+    "superagent": "^3.8.2",
+    "react-native-sideswipe": "^1.4.2"
   }
 }
