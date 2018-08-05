@@ -1,6 +1,7 @@
 import React from 'react';
 import { Scene, Tabs, Stack } from 'react-native-router-flux';
-import { Icon } from 'native-base';
+import { Content, Icon, Text } from 'native-base';
+import { Image } from 'react-native';
 
 import DefaultProps from '../constants/navigation';
 import AppConfig from '../../constants/config';
@@ -32,6 +33,7 @@ import MemberContainer from '../../containers/Member';
 import ProfileComponent from '../components/Profile';
 
 import AboutComponent from '../components/About';
+import GroupComponent from '../components/Groups';
 
 const Index = (
   <Stack>
@@ -45,11 +47,18 @@ const Index = (
       >
         <Stack
           key="home"
-          title={AppConfig.appName.toUpperCase()}
+          title="Groups/Orders"
           icon={() => <Icon name="planet" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="home" component={AboutComponent} />
+          <Scene
+            key="home"
+            // navigationBarTitleImage={require('../../images/logo/entrymeal.png')}
+            // navigationBarTitleImageStyle={{ height:40, position: 'absolute',  left: 10, width:50}}
+            component={GroupComponent}
+          >
+
+          </Scene>
         </Stack>
 
         <Stack
