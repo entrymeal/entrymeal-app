@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  FlatList, View, ImageBackground, Image,
+  FlatList, View, ScrollView, Image,
 } from 'react-native';
 import {
   Container, Content, Card, CardItem, Body, Text, Button,
@@ -11,6 +11,7 @@ import Loading from './Loading';
 import Error from './Error';
 import Header from './Header';
 import AdBanner from './AdBanner';
+import ImageInView from './ImageInView';
 import Spacer from './Spacer';
 import restaurantData from '../../data/restaurants.json';
 
@@ -40,14 +41,26 @@ const RestaurantListing = ({
         />
         <View  
           style={{
-            flex: 1,
+           
             backgroundColor: '#eee',
+            width: 400,
+            height: 200,
           }}
         >
-          <AdBanner
-            title="Hello There"
-          />
+          <AdBanner />
         </View>
+        <Text style={{fontSize:35}}> Varieties </Text>
+        <ScrollView horizontal  style={{
+          
+           backgroundColor: '#eee',
+           width: 400,
+           height: 200,
+          
+         }}>
+          <ImageInView path="https://media1.fdncms.com/pittsburgh/imager/u/original/1951465/dining-reviews-pasha-cafe-and-restaurant.jpg"/>
+          <ImageInView path = "https://hungryhappenings.com/wp-content/uploads/2015/07/chocolate-ice-cream-cone-puppies-dogs-.jpg"/>
+          <ImageInView path="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK_fD4ZeUL6svhw0rkGUqyQ94NiNjqMCbS56t4B4LTFitkhz9WaQ"/>
+        </ScrollView>
         <FlatList
           flex={1}
           keyExtractor={item => item.name}
