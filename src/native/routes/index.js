@@ -34,6 +34,7 @@ import ProfileComponent from '../components/Profile';
 
 import AboutComponent from '../components/About';
 import GroupComponent from '../components/Groups';
+import ChatComponent from '../components/Chat';
 
 const Index = (
   <Stack>
@@ -69,7 +70,14 @@ const Index = (
         >
           <Scene key="recipes" component={RestrntContainer} Layout={RestrntComponent} />
         </Stack>
-
+        <Stack
+          key="chat"
+          title="Chat"
+          icon={() => <Icon name="chatbubbles" {...DefaultProps.icons} />}
+          {...DefaultProps.navbarProps}
+        >
+          <Scene key="chat" component={ChatComponent} />
+        </Stack>
         <Stack
           key="profile"
           title="PROFILE"
