@@ -7,46 +7,18 @@ import {
 import ErrorMessages from '../../constants/errors';
 import Error from './Error';
 import Spacer from './Spacer';
+import restaurantData from '../../data/restaurant1.json';
 
 const RestaurantView = ({
   error,
   recipes,
   recipeId,
 }) => {
-  // Error
-  if (error) return <Error content={error} />;
-
-  // Get this Recipe from all recipes
-  let recipe = null;
-  if (recipeId && recipes) {
-    recipe = recipes.find(item => parseInt(item.id, 10) === parseInt(recipeId, 10));
-  }
-
-  // Recipe not found
-  if (!recipe) return <Error content={ErrorMessages.recipe404} />;
-
-  // Build Ingredients listing
-  const ingredients = recipe.ingredients.map(item => (
-    <ListItem key={item} rightIcon={{ style: { opacity: 0 } }}>
-      <Text>
-        {item}
-      </Text>
-    </ListItem>
-  ));
-
-  // Build Method listing
-  const method = recipe.method.map(item => (
-    <ListItem key={item} rightIcon={{ style: { opacity: 0 } }}>
-      <Text>
-        {item}
-      </Text>
-    </ListItem>
-  ));
-
+ 
   return (
     <Container>
       <Content padder>
-        <Image source={{ uri: recipe.image }} style={{ height: 100, width: null, flex: 1 ,resizeMode: 'contain'}} />
+        <Image source={{ uri: restaurantData.img }} style={{ height: 100, width: null, flex: 1 ,resizeMode: 'contain'}} />
 
         <Spacer size={25} />
         <H3>

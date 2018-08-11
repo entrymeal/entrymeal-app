@@ -1,0 +1,32 @@
+{
+  "restaurant": {
+    "id": 12334,
+    "Name": "Abc",
+    "img":"https://www.thonhotels.com/siteassets/hoteller/belgia/brussel/thon-hotel-bristol-stephanie/mat-og-drikke/thon-hotel-bristol-stephanie-91-restaurant-2.jpg",
+    "menu": [
+      {
+        "id": "1222",
+        "name": "Pizza",
+        "category": [
+          "Entre",
+          "Starter"
+        ],
+        "unitPrice": 12,
+        "priceCurrency": "USD",
+        "description": "Yummy Pizza"
+      },
+      {
+        "id": "12223",
+        "name": "Burger",
+        "category": [
+          "Entre",
+          "Starter"
+        ],
+        "unitPrice": 12,
+        "priceCurrency": "USD",
+        "description": "Yummy Burger"
+      }
+    ]
+    
+  }
+}
