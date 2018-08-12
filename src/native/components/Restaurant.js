@@ -1,93 +1,71 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Image } from 'react-native';
+import { Constants } from 'expo';
+import { Image, View, StyleSheet,  Dimensions } from 'react-native';
 import {
   Container, Content, Card, CardItem, Body, H3, List, ListItem, Text,
 } from 'native-base';
-import ErrorMessages from '../../constants/errors';
-import Error from './Error';
-import Spacer from './Spacer';
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
+import { Actions } from 'react-native-router-flux';
+import MenuList from './MenuList';
 import restaurantData from '../../data/restaurant1.json';
 
-const RestaurantView = ({
-  error,
-  recipes,
-  recipeId,
-}) => {
- 
-  return (
-    <Container>
-      <Content padder>
-        <Image source={{ uri: restaurantData.img }} style={{ height: 100, width: null, flex: 1 ,resizeMode: 'contain'}} />
+export default class Restaurant extends Component {
 
-        <Spacer size={25} />
-        <H3>
-          {recipe.title}
-        </H3>
-        <Text>
-          by
-          {' '}
-          {recipe.author}
-        </Text>
-        <Spacer size={15} />
-
-        <Card>
-          <CardItem header bordered>
-            <Text>
-              About this recipe
-            </Text>
-          </CardItem>
-          <CardItem>
-            <Body>
-              <Text>
-                {recipe.body}
-              </Text>
-            </Body>
-          </CardItem>
-        </Card>
-
-        <Card>
-          <CardItem header bordered>
-            <Text>
-              Ingredients
-            </Text>
-          </CardItem>
-          <CardItem>
-            <Content>
-              <List>
-                {ingredients}
-              </List>
-            </Content>
-          </CardItem>
-        </Card>
-
-        <Card>
-          <CardItem header bordered>
-            <Text>
-              How To
-            </Text>
-          </CardItem>
-          <CardItem>
-            <List>
-              {method}
-            </List>
-          </CardItem>
-        </Card>
-
-        <Spacer size={20} />
-      </Content>
-    </Container>
+  state = {
+    index: 0,
+    routes: [
+      { key: 'starter', title: 'Starter' },
+      { key: 'entre', title: 'Entre' },
+    ],
+  };
+  _renderTabBar = props => (
+    <TabBar
+      {...props}
+      style={styles.tabbar}
+      tabStyle={styles.tab}
+      labelStyle={styles.label}
+    />
   );
-};
 
-RestaurantView.propTypes = {
-  error: PropTypes.string,
-  recipeId: PropTypes.string.isRequired,
-  recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-};
+render(){
+  const starterTab = () => (
+    <MenuList style={[styles.container, { backgroundColor: 'beige' }]} category='Starter' />
+  );
+  const entreTab = () => (
+    <MenuList style={[styles.container, { backgroundColor: 'black' }]} category='Entre' />
+  );
+  return (
+    <TabView
+    navigationState={this.state}
+    renderScene={SceneMap({
+      starter: starterTab,
+      entre: entreTab,
+    })}
+    renderTabBar={this._renderTabBar}
+    onIndexChange={index => {this.setState({ index })}}
+    initialLayout={{ width: Dimensions.get('window').width }}
+  />
 
-RestaurantView.defaultProps = {
-  error: null,
-};
-
-export default RestaurantView;
+  );
+}
+}
+const styles = StyleSheet.create({
+  scene: {
+    flex: 1,
+    backgroundColor: '#ff6666',
+  },
+  tabbar: {
+    backgroundColor: '#ff6666',
+  },
+  tab: {
+    flex: 1,
+  },
+  indicator: {
+    backgroundColor: '#ff6666',
+  },
+  label: {
+    color: '#fff',
+    fontWeight: '400',
+  },
+});

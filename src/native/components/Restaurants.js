@@ -1,38 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  FlatList, View, ScrollView, Image,
+  FlatList, View, ScrollView, Image, TouchableOpacity,
 } from 'react-native';
 import {
   Container, Content, Card, CardItem, Body, Text, Button,
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import Loading from './Loading';
-import Error from './Error';
 import Header from './Header';
 import AdBanner from './AdBanner';
 import ImageInView from './ImageInView';
 import Spacer from './Spacer';
 import restaurantData from '../../data/restaurants.json';
 
+export default class Restaurants extends Component {
 
-const RestaurantListing = ({
-  error,
-  loading,
-  recipes,
-  reFetch,
-}) => {
-  // Loading
-  if (loading) return <Loading />;
+  constructor(props) {
+    super(props);
+    this.state = {
+      loaded: true,
 
-  // Error
-  if (error) return <Error content={error} />;
-
-  const keyExtractor = item => item.id;
-
-  const onPress = item => Actions.recipe({ match: { params: { id: String(item.id) } } });
-
+    };
+  }
+  render(){
+   
   return (
+    
     <Container>
       <Content padder>
         <Header
@@ -50,8 +43,8 @@ const RestaurantListing = ({
           <AdBanner />
         </View>
         <Text style={{fontSize:35}}> Varieties </Text>
-        <ScrollView horizontal  style={{
-          
+        <ScrollView horizontal  
+          style={ {          
            backgroundColor: '#eee',
            width: 400,
            height: 200,
@@ -87,6 +80,7 @@ const RestaurantListing = ({
                   height: '100%',
                 }}
               >
+              <TouchableOpacity onPress={() => Actions.restaurant( { title: item.name } )} style={{ flex: 1 }}>
                 <Image
                   style={{
                     flex: 1,
@@ -95,7 +89,9 @@ const RestaurantListing = ({
                     height: '100%',
                   }}
                   source={{uri: item.bannerImg }}
+
                 />
+                </TouchableOpacity>
               </View>
             <View
               style={{
@@ -124,18 +120,5 @@ const RestaurantListing = ({
       </Content>
     </Container>
   );
-};
-
-RestaurantListing.propTypes = {
-  error: PropTypes.string,
-  loading: PropTypes.bool.isRequired,
-  recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  reFetch: PropTypes.func,
-};
-
-RestaurantListing.defaultProps = {
-  error: null,
-  reFetch: null,
-};
-
-export default RestaurantListing;
+}
+}
