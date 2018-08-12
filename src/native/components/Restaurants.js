@@ -80,7 +80,7 @@ export default class Restaurants extends Component {
                   height: '100%',
                 }}
               >
-              <TouchableOpacity onPress={() => Actions.restaurant( { title: item.name } )} style={{ flex: 1 }}>
+
                 <Image
                   style={{
                     flex: 1,
@@ -91,7 +91,6 @@ export default class Restaurants extends Component {
                   source={{uri: item.bannerImg }}
 
                 />
-                </TouchableOpacity>
               </View>
             <View
               style={{
@@ -101,9 +100,9 @@ export default class Restaurants extends Component {
               }}
             >
 
-              <Button
-                boredered
+              <Button                
                 small
+                onPress={() => Actions.restaurant( { title: item.name } )} style={{ flex: 1 }}
               >
                 <Text>{item.name}{"\n"}{item.availableTime}</Text>
               </Button>
