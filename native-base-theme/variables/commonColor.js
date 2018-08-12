@@ -26,10 +26,10 @@ export default {
 
   // Button
   btnFontFamily: platform === "ios" ? "System" : "Roboto",
-  btnDisabledBg: "#b5b5b5",
+  btnDisabledBg: "#ff6666",
   buttonPadding: 6,
   get btnPrimaryBg() {
-    return this.brandPrimary;
+    return '#ff6666';
   },
   get btnPrimaryColor() {
     return this.inverseTextColor;
@@ -130,8 +130,8 @@ export default {
   tabActiveBgColor: platform === "ios" ? "#cde1f9" : "#3F51B5",
 
   // Header
-  toolbarBtnColor: platform === "ios" ? "#007aff" : "#fff",
-  toolbarDefaultBg: platform === "ios" ? "#F8F8F8" : "#ff6666",
+  toolbarBtnColor: platform === "ios" ? "#ffff99" : "#fff",
+  toolbarDefaultBg: platform === "ios" ? "#ff6666" : "#ff6666",
   toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: platform === "ios" ? "#CECDD2" : "#fff",
