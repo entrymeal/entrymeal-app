@@ -10,9 +10,11 @@ import AppConfig from '../../constants/config';
 // import RecipesComponent from '../components/Recipes';
 // import RecipeViewComponent from '../components/Recipe';
 
-import RestrntContainer from '../../containers/RestaurantListing';
-import RestrntComponent from '../components/Restaurants';
-import RestrntViewComponent from '../components/Restaurant';
+import Restaurants from '../components/Restaurants';
+import Restaurant from '../components/Restaurant';
+
+import MenuList from '../components/MenuList';
+import MenuItem from '../components/MenuItem';
 
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/SignUp';
@@ -63,12 +65,12 @@ const Index = (
         </Stack>
 
         <Stack
-          key="recipes"
+          key="restaurants"
           title="Restaurants"
           icon={() => <Icon name="book" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="recipes" component={RestrntContainer} Layout={RestrntComponent} />
+          <Scene key="restaurants" component={Restaurants}  />
         </Stack>
         <Stack
           key="chat"
@@ -132,12 +134,26 @@ const Index = (
     <Scene
       back
       clone
-      key="recipe"
-      title="RECIPE"
+      key="restaurant"
+      title="Restaurant"
       {...DefaultProps.navbarProps}
-      component={RestrntContainer}
-      Layout={RestrntViewComponent}
+      component={Restaurant}
     />
+    <Scene
+      back
+      clone
+      key="menulist"
+      title="Menu"
+      {...DefaultProps.navbarProps}
+      component={MenuList}
+    />
+    <Scene
+      key="menuitem"
+      direction="horizontal"
+      component={MenuItem}
+      title="Customize"
+      hideNavBar
+/>
   </Stack>
 );
 

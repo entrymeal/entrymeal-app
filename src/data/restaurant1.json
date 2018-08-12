@@ -7,22 +7,55 @@
       {
         "id": "1222",
         "name": "Pizza",
+        "img":"https://previews.123rf.com/images/seralexvi/seralexvi1209/seralexvi120900261/15474532-piece-of-pizza-on-white-background.jpg",
         "category": [
-          "Entre",
-          "Starter"
+          "Entre"          
         ],
         "unitPrice": 12,
         "priceCurrency": "USD",
-        "description": "Yummy Pizza"
+        "description": "Yummy Pizza. Customize as you wish"
       },
       {
         "id": "12223",
-        "name": "Burger",
+        "name": "Bite Size Burger",
+        "img":"https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/117944.jpg",
         "category": [
-          "Entre",
           "Starter"
         ],
-        "unitPrice": 12,
+        "unitPrice": 2.50,
+        "priceCurrency": "USD",
+        "description": "Yummy Burger that you can bite and it will vanish..Yee Haw!!"
+      },
+      {
+        "id": "12224",
+        "name": "French Fries",
+        "img":"https://s23991.pcdn.co/wp-content/uploads/2013/08/cold-fusion-fries.jpg",
+        "category": [
+          "Starter"
+        ],
+        "unitPrice": 2.99,
+        "priceCurrency": "USD",
+        "description": "Finger Licking Good Classic Fries."
+      },
+      {
+        "id": "12225",
+        "name": "Grilled Zachunni",
+        "img":"https://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/recipes/ck/11/09/grilled-zucchini-sea-salt-ck-x.jpg",
+        "category": [
+          "Entre"
+        ],
+        "unitPrice": 10.99,
+        "priceCurrency": "USD",
+        "description": "This is a veggie delight"
+      },
+      {
+        "id": "12226",
+        "name": "Jumbo Burger",
+        "img":"https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/117944.jpg",
+        "category": [
+          "Entre"
+        ],
+        "unitPrice": 12.50,
         "priceCurrency": "USD",
         "description": "Yummy Burger"
       }

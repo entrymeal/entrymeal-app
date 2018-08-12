@@ -31,7 +31,9 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
     "webpack-hot-middleware": "^2.22.3",
-    "react-native-sideswipe": "^1.4.2"
+    "react-native-sideswipe": "^1.4.2",
+    "react-native-tab-view": "1.0.2",
+    "react-native-elements": "^0.19.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
