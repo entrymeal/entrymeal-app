@@ -1,71 +1,82 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, List, ListItem, Icon,Input, Left, Body, Right,Item, Thumbnail, Text, Button} from 'native-base';
-var BUTTONS = ['Option 0', 'Option 1', 'Option 2', 'Delete', 'Cancel'];
-var DESTRUCTIVE_INDEX = 3;
-var CANCEL_INDEX = 4;
+import { ListView } from 'react-native';
+import {
+  Container,
+  Header,
+  Content,
+  List,
+  ListItem,
+  Icon,
+  Input,
+  Left,
+  Body,
+  Right,
+  Item,
+  Thumbnail,
+  Text,
+} from 'native-base';
+import PropTypes from 'prop-types';
 
-const Groups = () => (
-  <Container>
-    <Header searchBar rounded>
-      <Item>
-        <Icon name="ios-search" />
-        <Input placeholder="" />
-        <Icon name="ios-people" />
-      </Item>
-    </Header>
-    <Content>
-      <List>
-        <ListItem avatar>
-          <Left>
-            <Thumbnail source={require('../../images/group/arjun.jpg')}/>
-          </Left>
-          <Body>
-          <Text>Family</Text>
-          <Text note>Family Group . .</Text>
-          </Body>
-          <Right>
-            <Text note>online</Text>
-          </Right>
-        </ListItem>
-        <ListItem avatar>
-          <Left>
-            <Thumbnail source={require('../../images/group/arjun.jpg')}/>
-          </Left>
-          <Body>
-          <Text>Arjun</Text>
-          <Text note>Personal. .</Text>
-          </Body>
-          <Right>
-            <Text note>3:43 pm</Text>
-          </Right>
-        </ListItem>
-        <ListItem avatar>
-          <Left>
-            <Thumbnail source={require('../../images/group/arjun.jpg')}/>
-          </Left>
-          <Body>
-          <Text>JAS</Text>
-          <Text note>Office Friends . .</Text>
-          </Body>
-          <Right>
-            <Text note>8:43 pm</Text>
-          </Right>
-        </ListItem>
-        <ListItem avatar>
-          <Left>
-            <Thumbnail source={require('../../images/group/arjun.jpg')}/>
-          </Left>
-          <Body>
-          <Text>Habitat</Text>
-          <Text note>Team group . .</Text>
-          </Body>
-          <Right>
-            <Text note>3:43 pm</Text>
-          </Right>
-        </ListItem>
-      </List>
-    </Content>
-  </Container>
-);
-export default Groups;
+import groups from '../../data/groups.json';
 
+export default class Groups extends Component {
+  static propTypes = {
+    error: PropTypes.string,
+    loading: PropTypes.bool.isRequired,
+  };
+
+  static defaultProps = {
+    error: null,
+    loading: false,
+  };
+
+  constructor(props) {
+    super(props);
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows(groups.groupList)
+    };
+
+    this.handleChange = this.handleOnGroupSelect.bind(this);
+  }
+
+  handleOnGroupSelect = () => {
+    this.setState({});
+  };
+
+  render() {
+    const { loading, error } = this.props;
+    const { groupName, groupImage } = this.state;
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    return (
+      <Container>
+        <Header searchBar rounded>
+          <Item>
+            <Icon name="ios-search"/>
+            <Input placeholder="Search Groups"/>
+            <Icon name="ios-people"/>
+          </Item>
+        </Header>
+        <Content>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={(groupData) => {return (
+              <ListItem avatar onPress={() => alert(groupData.groupName)}>
+                <Left>
+                  <Thumbnail small source={{uri: groupData.groupImage}} />
+                </Left>
+                <Body>
+                <Text>{groupData.groupName}</Text>
+                <Text note>{groupData.noteText} . .</Text>
+                </Body>
+                <Right>
+                  <Text note>{groupData.status}</Text>
+                </Right>
+              </ListItem>
+            )}}
+          />
+        </Content>
+      </Container>
+    );
+  }
+}
