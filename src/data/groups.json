@@ -1,0 +1,71 @@
+{
+    "groupList": [
+      {
+        groupName:"Family",
+        noteText:"Family Group",
+        groupImage: "https://www.tropical-islands.de/fileadmin/_processed_/csm_TI_RESTAURANT_TROPICAL-GARDEN1_RGB_2000x860_c3a4238088.jpg",
+        status: "Online"
+      },
+      {
+        groupName:"JAS",
+        noteText:"Friends",
+        groupImage: "https://www.thonhotels.com/siteassets/hoteller/belgia/brussel/thon-hotel-bristol-stephanie/mat-og-drikke/thon-hotel-bristol-stephanie-91-restaurant-2.jpg",
+        status: "Online"
+      },
+      {
+        groupName:"Habitat",
+        noteText:"Office Group",
+        groupImage: "https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg",
+        status: "Offline"
+      },
+      {
+        groupName:"Friends1",
+        noteText:"Friends1",
+        groupImage: "https://www.tropical-islands.de/fileadmin/_processed_/csm_TI_RESTAURANT_TROPICAL-GARDEN1_RGB_2000x860_c3a4238088.jpg",
+        status: "Offline"
+      }
+    ,
+      {
+        groupName:"College Friends2",
+        noteText:"Friends2",
+        groupImage: "https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg",
+        status: "Offline"
+      }
+    ,
+      {
+        groupName:"Friends3",
+        noteText:"Friends3",
+        groupImage: "https://www.tropical-islands.de/fileadmin/_processed_/csm_TI_RESTAURANT_TROPICAL-GARDEN1_RGB_2000x860_c3a4238088.jpg",
+        status: "Offline"
+      }
+    ,
+      {
+        groupName:"Group 2",
+        noteText:"Group 2",
+        groupImage: "https://www.tropical-islands.de/fileadmin/_processed_/csm_TI_RESTAURANT_TROPICAL-GARDEN1_RGB_2000x860_c3a4238088.jpg",
+        status: "Offline"
+      }
+    ,
+      {
+        groupName:"College Friends",
+        noteText:"Friends",
+        groupImage: "https://www.tropical-islands.de/fileadmin/_processed_/csm_TI_RESTAURANT_TROPICAL-GARDEN1_RGB_2000x860_c3a4238088.jpg",
+        status: "Offline"
+      }
+    ,
+      {
+        groupName:"College Friends",
+        noteText:"Friends",
+        groupImage: "https://www.tropical-islands.de/fileadmin/_processed_/csm_TI_RESTAURANT_TROPICAL-GARDEN1_RGB_2000x860_c3a4238088.jpg",
+        status: "Offline"
+      }
+    ,
+      {
+        groupName:"College Friends",
+        noteText:"Friends",
+        groupImage: "https://www.tropical-islands.de/fileadmin/_processed_/csm_TI_RESTAURANT_TROPICAL-GARDEN1_RGB_2000x860_c3a4238088.jpg",
+        status: "Offline"
+      }
+
+    ]
+  }
