@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import {
   Container,
   Header,
@@ -32,9 +33,9 @@ export default class Groups extends Component {
 
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
-      dataSource: ds.cloneWithRows(groups.groupList)
+      dataSource: ds.cloneWithRows(groups.groupList),
     };
 
     this.handleChange = this.handleOnGroupSelect.bind(this);
@@ -52,28 +53,34 @@ export default class Groups extends Component {
       <Container>
         <Header searchBar rounded>
           <Item>
-            <Icon name="ios-search"/>
-            <Input placeholder="Search Groups"/>
-            <Icon name="ios-people"/>
+            <Icon name="ios-search" />
+            <Input placeholder="Search Groups" />
+            <Icon name="ios-people" />
           </Item>
         </Header>
         <Content>
           <ListView
             dataSource={this.state.dataSource}
-            renderRow={(groupData) => {return (
-              <ListItem avatar onPress={() => alert(groupData.groupName)}>
+            renderRow={groupData => (
+              <ListItem avatar onPress={() => Actions.chat({ groupName: groupData.groupName })}>
                 <Left>
-                  <Thumbnail small source={{uri: groupData.groupImage}} />
+                  <Thumbnail small source={{ uri: groupData.groupImage }} />
                 </Left>
                 <Body>
-                <Text>{groupData.groupName}</Text>
-                <Text note>{groupData.noteText} . .</Text>
+                  <Text>
+                    {groupData.groupName}
+                  </Text>
+                  <Text note>
+                    {groupData.noteText}
+                  </Text>
                 </Body>
                 <Right>
-                  <Text note>{groupData.status}</Text>
+                  <Text note>
+                    {groupData.status}
+                  </Text>
                 </Right>
               </ListItem>
-            )}}
+            )}
           />
         </Content>
       </Container>
