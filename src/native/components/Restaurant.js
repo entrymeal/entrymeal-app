@@ -3,53 +3,12 @@ import PropTypes from 'prop-types';
 import { Constants } from 'expo';
 import { Image, View, StyleSheet,  Dimensions } from 'react-native';
 import {
-  Container, Content, Card, CardItem, Body, H3, List, ListItem, Text,
+  Container, Content, Card, CardItem, Body, H3, TabHeading, ScrollableTab, Text, Tabs, Tab
 } from 'native-base';
-import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import { Actions } from 'react-native-router-flux';
 import MenuList from './MenuList';
 import restaurantData from '../../data/restaurant1.json';
 
-export default class Restaurant extends Component {
-
-  state = {
-    index: 0,
-    routes: [
-      { key: 'starter', title: 'Starter' },
-      { key: 'entre', title: 'Entre' },
-    ],
-  };
-  _renderTabBar = props => (
-    <TabBar
-      {...props}
-      style={styles.tabbar}
-      tabStyle={styles.tab}
-      labelStyle={styles.label}
-    />
-  );
-
-render(){
-  const starterTab = () => (
-    <MenuList style={[styles.container, { backgroundColor: 'beige' }]} category='Starter' />
-  );
-  const entreTab = () => (
-    <MenuList style={[styles.container, { backgroundColor: 'black' }]} category='Entre' />
-  );
-  return (
-    <TabView
-    navigationState={this.state}
-    renderScene={SceneMap({
-      starter: starterTab,
-      entre: entreTab,
-    })}
-    renderTabBar={this._renderTabBar}
-    onIndexChange={index => {this.setState({ index })}}
-    initialLayout={{ width: Dimensions.get('window').width }}
-  />
-
-  );
-}
-}
 const styles = StyleSheet.create({
   scene: {
     flex: 1,
@@ -69,3 +28,36 @@ const styles = StyleSheet.create({
     fontWeight: '400',
   },
 });
+export default class Restaurant extends Component {
+  state = {
+    index: 0,    
+  };
+
+
+  render() {
+    return (
+      <Tabs renderTabBar={() => <ScrollableTab style={styles.tabbar} />}>
+        <Tab heading={(
+          <TabHeading style={{ backgroundColor: '#ff6666' }}>
+            <Text style={styles.label}>
+              {'Starter'}
+            </Text>
+          </TabHeading>
+        )}
+        >
+          <MenuList style={[styles.container, { backgroundColor: 'beige' }]} category="Starter" />
+        </Tab>
+        <Tab heading={(
+          <TabHeading style={{ backgroundColor: '#ff6666' }}>
+            <Text style={styles.label}>
+              {'Entre'}
+            </Text>
+          </TabHeading>
+        )}
+        >
+          <MenuList style={[styles.container, { backgroundColor: 'black' }]} category="Entre" />
+        </Tab>
+      </Tabs>
+    );
+  }
+}
