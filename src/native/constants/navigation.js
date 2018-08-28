@@ -2,7 +2,7 @@ import Colors from '../../../native-base-theme/variables/commonColor';
 
 export default {
   navbarProps: {
-    navigationBarStyle: { backgroundColor: '#ffe6e6', padding: 5 },
+    navigationBarStyle: { backgroundColor: '#ffe6e6', padding: 2 },
     titleStyle: {
       color: Colors.textColor,
       alignSelf: 'auto',
@@ -14,7 +14,7 @@ export default {
 
   tabProps: {
     swipeEnabled: false,
-    activeBackgroundColor: 'rgba(255,255,255,0.1)',
+    activeBackgroundColor: 'rgba(255,255,255,0.0)',
     inactiveBackgroundColor: Colors.brandPrimary,
     tabBarStyle: { backgroundColor: Colors.brandPrimary },
   },

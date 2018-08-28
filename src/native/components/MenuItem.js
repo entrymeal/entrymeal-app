@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, StatusBar, Image, FlatList } from 'react-native';
+import { View, StatusBar, Image, FlatList, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { Container, Header, Content, Icon, ListItem, CheckBox, Text, Card, CardItem, Body } from 'native-base';
+import { Container, Header, Content, Icon, ListItem, CheckBox, Card, CardItem, Body } from 'native-base';
 
 import { Constants } from 'expo';
 import MenuItemData from '../../data/menuItem1';
