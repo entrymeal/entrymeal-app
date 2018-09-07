@@ -51,7 +51,7 @@ const Index = (
         <Stack
           key="home"
           title="Groups/Orders"
-          icon={() => <Icon name="planet" {...DefaultProps.icons} />}
+          icon={() => <Icon name="home" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
           <Scene
@@ -67,10 +67,10 @@ const Index = (
         <Stack
           key="restaurants"
           title="Restaurants"
-          icon={() => <Icon name="book" {...DefaultProps.icons} />}
+          icon={() => <Icon name="restaurant" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="restaurants" component={Restaurants}  />
+          <Scene key="restaurants" component={Restaurants} hideNavBar />
         </Stack>
         <Stack
           key="chat"
