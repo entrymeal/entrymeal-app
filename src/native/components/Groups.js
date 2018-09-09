@@ -62,7 +62,7 @@ export default class Groups extends Component {
           <ListView
             dataSource={this.state.dataSource}
             renderRow={groupData => (
-              <ListItem avatar onPress={() => Actions.chat({ groupName: groupData.groupName })}>
+              <ListItem avatar onPress={() => Actions.groupChat({ title: groupData.groupName })}>
                 <Left>
                   <Thumbnail small source={{ uri: groupData.groupImage }} />
                 </Left>

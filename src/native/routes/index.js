@@ -54,14 +54,7 @@ const Index = (
           icon={() => <Icon name="home" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene
-            key="home"
-            // navigationBarTitleImage={require('../../images/logo/entrymeal.png')}
-            // navigationBarTitleImageStyle={{ height:40, position: 'absolute',  left: 10, width:50}}
-            component={GroupComponent}
-          >
-
-          </Scene>
+          <Scene key="home" component={GroupComponent} hideNavBar/>
         </Stack>
 
         <Stack
@@ -70,15 +63,7 @@ const Index = (
           icon={() => <Icon name="restaurant" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="restaurants" component={Restaurants} hideNavBar />
-        </Stack>
-        <Stack
-          key="chat"
-          title="Chat"
-          icon={() => <Icon name="chatbubbles" {...DefaultProps.icons} />}
-          {...DefaultProps.navbarProps}
-        >
-          <Scene key="chat" component={ChatComponent} />
+          <Scene key="restaurants" component={Restaurants} hideNavBar/>
         </Stack>
         <Stack
           key="profile"
@@ -86,7 +71,7 @@ const Index = (
           icon={() => <Icon name="contact" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="profileHome" component={MemberContainer} Layout={ProfileComponent} />
+          <Scene key="profileHome" component={MemberContainer} Layout={ProfileComponent}/>
           <Scene
             back
             key="signUp"
@@ -153,7 +138,15 @@ const Index = (
       component={MenuItem}
       title="Customize"
       hideNavBar
-/>
+    />
+    <Scene
+      back
+      clone
+      key="groupChat"
+      direction="horizontal"
+      component={ChatComponent}
+      title="Customize"
+    />
   </Stack>
 );
 
