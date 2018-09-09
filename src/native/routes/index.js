@@ -78,7 +78,7 @@ const Index = (
           icon={() => <Icon name="chatbubbles" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="chat" component={ChatComponent} />
+          <Scene key="chat" title="Chats" component={ChatComponent} />
         </Stack>
         <Stack
           key="profile"
@@ -154,6 +154,7 @@ const Index = (
       title="Customize"
       hideNavBar
 />
+  <Scene back clone key="singlechat" title="Chats" component={ChatComponent} />
   </Stack>
 );
 

@@ -42,7 +42,7 @@ export default class MenuList extends Component {
               />
 )}
             subtitle={item.description}
-            onPress={() => { Actions.menuitem({ title: item.name }); }}
+            onPress={() => { Actions.menuitem({ title: item.name }) }}
           />
         ));
       return (

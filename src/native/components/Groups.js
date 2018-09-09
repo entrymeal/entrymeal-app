@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, List, ListItem, Icon,Input, Left, Body, Right,Item, Thumbnail, Text, Button} from 'native-base';
+import { Actions } from 'react-native-router-flux';
 var BUTTONS = ['Option 0', 'Option 1', 'Option 2', 'Delete', 'Cancel'];
 var DESTRUCTIVE_INDEX = 3;
 var CANCEL_INDEX = 4;
@@ -15,7 +16,7 @@ const Groups = () => (
     </Header>
     <Content>
       <List>
-        <ListItem avatar>
+        <ListItem avatar onPress={() => { Actions.singlechat({ title: 'Family' }) }}>
           <Left>
             <Thumbnail source={require('../../images/group/arjun.jpg')}/>
           </Left>
@@ -27,7 +28,7 @@ const Groups = () => (
             <Text note>online</Text>
           </Right>
         </ListItem>
-        <ListItem avatar>
+        <ListItem avatar onPress={() => { Actions.singlechat({ title: 'Arjun' }) }}>
           <Left>
             <Thumbnail source={require('../../images/group/arjun.jpg')}/>
           </Left>
@@ -39,7 +40,7 @@ const Groups = () => (
             <Text note>3:43 pm</Text>
           </Right>
         </ListItem>
-        <ListItem avatar>
+        <ListItem avatar onPress={() => { Actions.singlechat({ title: 'JAS' }) }}>
           <Left>
             <Thumbnail source={require('../../images/group/arjun.jpg')}/>
           </Left>
@@ -51,7 +52,7 @@ const Groups = () => (
             <Text note>8:43 pm</Text>
           </Right>
         </ListItem>
-        <ListItem avatar>
+        <ListItem avatar  onPress={() => { Actions.singlechat({ title: 'Habitat' }) }}>
           <Left>
             <Thumbnail source={require('../../images/group/arjun.jpg')}/>
           </Left>
